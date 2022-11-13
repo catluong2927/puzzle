@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gamepuzzle</title>
+</head>
+<body>
+<button id="pic">
+    <img id="pic1" src="i/i1.jpg" alt="kakashi" width="100%" style=" " onclick="clickImg1()"><br>
+    <img id="pic2" src="k/k2.jpg" alt="itachi" width="100%" style=" " onclick="clickImg2()"><br>
+    <img id="pic3" src="vs/vs3.jpg" alt="kakashi vs itachi" style=" " width="100%" onclick="clickImg3()"><br><br>
+</button>
+
+<script>
+        function clickImg1() {
+            let pic1= document.getElementById("pic1");
+            let ranDom = Math.floor(Math.random()*3);
+            let obj1= ["i/i1.jpg","k/k1.jpg","vs/vs1.jpg"];
+            pic1.src = obj1[ranDom];
+            console.log(pic1.src)
+            check();
+        }
+        function clickImg2() {
+            let pic2= document.getElementById("pic2");
+            let ranDom = Math.floor(Math.random()*3);
+            let obj2= ["k/k2.jpg","i/i2.jpg","vs/vs2.jpg"];
+            pic2.src = obj2[ranDom];
+            console.log(pic2.src)
+            check();
+        }
+        function clickImg3() {
+            let pic3= document.getElementById("pic3");
+            let ranDom = Math.floor(Math.random()*3);
+            let obj3= ["vs/vs3.jpg","i/i3.jpg","k/k3.jpg"];
+            pic3.src = obj3[ranDom];
+            console.log(pic3.src)
+            check();
+        }
+        function convert(picture) {
+            let p = picture.src.split('/');
+            let a = p[p.length - 2];
+            let b = p[p.length - 1];
+            let c = [];
+            c.push(a);
+            c.push(b);
+            let pic = c.join("/")
+            return pic;
+        }
+
+        function check() {
+            let pic= document.getElementById("pic");
+            if ((convert(pic1)) == "i/i1.jpg" && (convert(pic2) == "i/i2.jpg") && (convert(pic3) == "i/i3.jpg")) {pic.style= "background-color: red"}
+            else {if ((convert(pic1)) == "k/k1.jpg" && (convert(pic2) == "k/k2.jpg") && (convert(pic3) == "k/k3.jpg")) {pic.style= "background-color: red"}
+                else{
+                    if ((convert(pic1)) == "vs/vs1.jpg" && (convert(pic2) == "vs/vs2.jpg") && (convert(pic3) == "vs/vs3.jpg"))
+                        pic.style = "background-color: red"
+                    else pic.style = ""
+                }
+            }
+
+        }
+</script>
+</body>
+</html>
